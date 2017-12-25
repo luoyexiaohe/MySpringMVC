@@ -6,10 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -59,7 +61,7 @@ public class JDBCUtil {
         	System.out.println("该sql语句未能查询到数据");
         	return null;
         }
-        Map resultMap = new HashMap();
+          Map resultMap = new HashMap();
         int count = pst.getMetaData().getColumnCount();
         for (int i = 1; i <= count; i++) {
             String key = pst.getMetaData().getColumnName(i);
@@ -67,6 +69,14 @@ public class JDBCUtil {
             resultMap.put(key, val);
         }
         return resultMap;
+    }
+    
+    public List<Bean> query(Bean bean) throws SQLException {
+    	return null;
+    }
+
+    public Bean queryExact(Bean bean) throws SQLException {
+    	return null;
     }
     
 
