@@ -30,6 +30,13 @@ public class BooksAction extends BaseAction{
 		return "/book/showBook";
 	}
 	
+	@RequestMapping(value="showBook1.do")
+	public String showBook1(HttpServletRequest request ,ModelMap model) throws SQLException{
+		Map bookMap = this.facade.getBook();
+		model.addAttribute("book", bookMap);
+		return "/book/showBook";
+	}
+	
 	@RequestMapping(value="addBook.do")
 	public void addBook(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		this.facade.addBook();

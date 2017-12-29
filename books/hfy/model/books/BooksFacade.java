@@ -1,11 +1,13 @@
 package hfy.model.books;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import hyf.model.init.BaseFacade;
+import singel.Book;
 
 @Service(value="books.booksFacade")
 public class BooksFacade extends BaseFacade{
@@ -25,6 +27,17 @@ public class BooksFacade extends BaseFacade{
 		return resultMap;
 	}
 	
+	/**
+	 * 获取当前所有的book对象数据
+	 * @author Administrator
+	 * @return
+	 * 2017年12月25日 下午2:50:38
+	 */
+	public List<Book> listAll(Object obj){
+		List listBook = this.Dao.listAll(obj);
+		return listBook;
+		
+	}
 	public void addBook() throws Exception{
 		this.Dao.update("update book set bookId = '456' where id='123'");
 	}
