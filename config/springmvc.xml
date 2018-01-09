@@ -6,6 +6,7 @@
 	xmlns:context="http://www.springframework.org/schema/context"       
 	xmlns:aop="http://www.springframework.org/schema/aop"       
 	xmlns:tx="http://www.springframework.org/schema/tx"       
+	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans            
 						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd            
 						http://www.springframework.org/schema/context            
@@ -17,7 +18,9 @@
 						http://www.springframework.org/schema/mvc            
 						http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd            
 						http://www.springframework.org/schema/context            
-						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+						http://www.springframework.org/schema/context/spring-context-3.0.xsd
+						http://www.springframework.org/schema/task 
+						http://www.springframework.org/schema/task/spring-task-4.1.xsd">
 	<bean class="JDBC.JDBCUtil"></bean>
 	<!--        使Spring支持自动检测组件，如注解的Controller        -->
 	<context:annotation-config />            
@@ -37,6 +40,12 @@
 	     <property name="maxInMemorySize" value="40960" />
 	     <property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
+	
+	<task:scheduler id="taskTest" pool-size="100"/>
+	<task:scheduled-tasks>
+		<!--每十五秒调用一次task1这个方法 -->
+		<task:scheduled ref="TestTask" method="task1" cron="0/15 * * * * ?"/>
+	</task:scheduled-tasks>
 	
 
 </beans>

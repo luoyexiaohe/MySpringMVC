@@ -12,6 +12,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+/**
+ * 测试spring框架下的文件上传
+ * @author Administrator
+ *
+ */
 @Controller
 @RequestMapping(value="/test/")
 public class TestClass {
