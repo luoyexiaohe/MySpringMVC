@@ -64,7 +64,7 @@ public class JDBCUtil {
         	System.out.println("该sql语句未能查询到数据");
         	return null;
         }
-          Map resultMap = new HashMap();
+        Map resultMap = new HashMap();
         int count = pst.getMetaData().getColumnCount();
         for (int i = 1; i <= count; i++) {
             String key = pst.getMetaData().getColumnName(i);
@@ -109,16 +109,14 @@ public class JDBCUtil {
 			for(int i=0;i<arrField.length;i++) {
 				Field field = arrField[i];
 				 // 如果类型是String
-                if (field.getGenericType().toString().equals(
-                        "class java.lang.String")) { // 如果type是类类型，则前面包含"class "，后面跟类名
+                if (field.getGenericType().toString().equals("class java.lang.String")) { // 如果type是类类型，则前面包含"class "，后面跟类名
                     // 拿到该属性的gettet方法
                     /**
                      * 这里需要说明一下：他是根据拼凑的字符来找你写的getter方法的
                      * 在Boolean值的时候是isXXX（默认使用ide生成getter的都是isXXX）
                      * 如果出现NoSuchMethod异常 就说明它找不到那个gettet方法 需要做个规范
                      */
-                    Method m = (Method) bean.getMethod(
-                            "get" + getMethodName(field.getName()));
+                    Method m = (Method) bean.getMethod("get" + getMethodName(field.getName()));
  
                     String val = (String) m.invoke(obj);// 调用getter方法获取属性值
                     if (val != null) {
@@ -133,10 +131,8 @@ public class JDBCUtil {
                 }
  
                 // 如果类型是Integer
-                if (field.getGenericType().toString().equals(
-                        "class java.lang.Integer")) {
-                    Method m = (Method) bean.getMethod(
-                            "get" + getMethodName(field.getName()));
+                if (field.getGenericType().toString().equals("class java.lang.Integer")) {
+                    Method m = (Method) bean.getMethod("get" + getMethodName(field.getName()));
                     Integer val = (Integer) m.invoke(obj);
                     if (val != null) {
                         System.out.println("Integer type:" + val);
@@ -145,10 +141,8 @@ public class JDBCUtil {
                 }
  
                 // 如果类型是Double
-                if (field.getGenericType().toString().equals(
-                        "class java.lang.Double")) {
-                    Method m = (Method) bean.getMethod(
-                            "get" + getMethodName(field.getName()));
+                if (field.getGenericType().toString().equals("class java.lang.Double")) {
+                    Method m = (Method) bean.getMethod("get" + getMethodName(field.getName()));
                     Double val = (Double) m.invoke(obj);
                     if (val != null) {
                         System.out.println("Double type:" + val);
@@ -157,10 +151,8 @@ public class JDBCUtil {
                 }
  
                 // 如果类型是Boolean 是封装类
-                if (field.getGenericType().toString().equals(
-                        "class java.lang.Boolean")) {
-                    Method m = (Method) bean.getMethod(
-                            field.getName());
+                if (field.getGenericType().toString().equals("class java.lang.Boolean")) {
+                    Method m = (Method) bean.getMethod(field.getName());
                     Boolean val = (Boolean) m.invoke(obj);
                     if (val != null) {
                         System.out.println("Boolean type:" + val);
@@ -171,8 +163,7 @@ public class JDBCUtil {
                 // 如果类型是boolean 基本数据类型不一样 这里有点说名如果定义名是 isXXX的 那就全都是isXXX的
                 // 反射找不到getter的具体名
                 if (field.getGenericType().toString().equals("boolean")) {
-                    Method m = (Method) bean.getMethod(
-                            field.getName());
+                    Method m = (Method) bean.getMethod(field.getName());
                     Boolean val = (Boolean) m.invoke(obj);
                     if (val != null) {
                         System.out.println("boolean type:" + val);
@@ -180,10 +171,8 @@ public class JDBCUtil {
  
                 }
                 // 如果类型是Date
-                if (field.getGenericType().toString().equals(
-                        "class java.util.Date")) {
-                    Method m = (Method) bean.getMethod(
-                            "get" + getMethodName(field.getName()));
+                if (field.getGenericType().toString().equals("class java.util.Date")) {
+                    Method m = (Method) bean.getMethod("get" + getMethodName(field.getName()));
                     Date val = (Date) m.invoke(obj);
                     if (val != null) {
                         System.out.println("Date type:" + val);
@@ -191,10 +180,8 @@ public class JDBCUtil {
  
                 }
                 // 如果类型是Short
-                if (field.getGenericType().toString().equals(
-                        "class java.lang.Short")) {
-                    Method m = (Method) bean.getMethod(
-                            "get" + getMethodName(field.getName()));
+                if (field.getGenericType().toString().equals("class java.lang.Short")) {
+                    Method m = (Method) bean.getMethod("get" + getMethodName(field.getName()));
                     Short val = (Short) m.invoke(obj);
                     if (val != null) {
                         System.out.println("Short type:" + val);
