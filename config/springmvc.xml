@@ -40,7 +40,7 @@
 	     <property name="maxInMemorySize" value="40960" />
 	     <property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
-	
+	<bean/>
 	<task:scheduler id="taskTest" pool-size="100"/>
 	<task:scheduled-tasks>
 		<!--每十五秒调用一次task1这个方法 -->
